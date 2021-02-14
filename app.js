@@ -28,6 +28,18 @@ const showImages = (images) => {
 
 }
 
+// enter keypress for searchBox
+document.getElementById("search", "duration").addEventListener("keypress", function (event) {
+  if (event.key === "Enter")
+    document.getElementById("search-btn", "create-slider").click();
+});
+
+// enter keypress for create slider
+document.getElementById("duration").addEventListener("keypress", function (event) {
+  if (event.key === "Enter")
+    document.getElementById("create-slider").click();
+});
+
 const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
@@ -39,7 +51,7 @@ let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
   element.classList.add('added');
- 
+
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
@@ -68,7 +80,7 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value;
-  if(duration > 0){
+  if (duration > 0) {
     sliders.forEach(slide => {
       let item = document.createElement('div')
       item.className = "slider-item";
@@ -83,7 +95,7 @@ const createSlider = () => {
       changeSlide(slideIndex);
     }, duration);
   }
-  else{
+  else {
     alert("Don't  Push Negetive value");
   }
 }
