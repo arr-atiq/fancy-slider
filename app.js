@@ -25,7 +25,6 @@ const showImages = (images) => {
     div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div)
   })
-
 }
 
 // enter keypress for searchBox
@@ -55,10 +54,15 @@ const selectItem = (event, img) => {
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
-  } else {
-    alert('Hey, Already added !')
+    console.log(sliders);
+  } 
+  else {
+    imagesArea.addEventListener('dblclick', function() {
+      element.remove();
+});
   }
 }
+
 var timer
 const createSlider = () => {
   // check slider image length
@@ -96,7 +100,7 @@ const createSlider = () => {
     }, duration);
   }
   else {
-    alert("Don't  Push Negetive value");
+    alert("Don't Push Negetive Duration");
   }
 }
 
