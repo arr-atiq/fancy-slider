@@ -27,7 +27,9 @@ img {
   height: 400px;
   object-fit: cover;
 }
-
+.spinner-none{
+  display: none!important;
+}
 .prev-next {
   position: absolute;
   top: 50%;
